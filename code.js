@@ -17,18 +17,22 @@ var circularMirror = false;
 var encryptionNboxes = 0;
 var activex;
 var activey;
-var mouseDown = false;
 var backupUndo = '';
 var startColor = '';
 var decryptIncrementColumn = 0;
 var backupEncryptionNboxes = '';
 
-document.body.onmousedown = function() {
-  mouseDown = true;
-};
-document.body.onmouseup = function() {
+//mouse state management for Drawing
+var isMouseDown = false;
+document.body.addEventListener('mousedown', function() {
+  isMouseDown = true;
+});
+document.body.addEventListener('mouseup', function() {
+  isMouseDown = false;
+});
+
+document.body.addEventListener('mouseup', function() {
   encryptGrid();
-  mouseDown = false;
   if (
     (backupUndo != '') &
     (backupUndo != undos[undos.length - 1])
@@ -42,7 +46,7 @@ document.body.onmouseup = function() {
       undos.splice(0, 1);
     }
   }
-};
+});
 
 function showHint() {
   document.getElementById('hint').blur();
@@ -2089,8 +2093,7 @@ function redo() {
     document.getElementById('redoButton').disabled = true;
   }
 }
-
-document.body.onkeydown = function(e) {
+document.body.addEventListener('keydown', function(e) {
   var evtobj = window.event ? event : e;
   var unicode = evtobj.charCode
     ? evtobj.charCode
@@ -2262,7 +2265,7 @@ document.body.onkeydown = function(e) {
       }
     }
   }
-};
+});
 
 function preCharOrder(type) {
   switch (type) {
