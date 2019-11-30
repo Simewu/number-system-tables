@@ -411,107 +411,52 @@ function calculate() {
 }
 
 function getTooltip(num) {
-  var characters =
-    '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  var letters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  var digits = '0123456789';
+  var letters = 'abcdefghijklmnopqrstuvwxyz';
+  letters += letters.toUpperCase();
+  var characters = digits + letters;
+  var base64 = letters + digits + '+/';
   var encr =
     'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM 1234567890-+.?!';
-  var base64 =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-  var bin = '';
-  var q = num;
-  if (q != 0) {
-    while (q != 0) {
-      bin = characters.charAt(q % 2) + bin;
-      q = Math.floor(q / 2);
-    }
-  } else {
-    bin = characters.charAt(0);
+
+  function mkBase(base, name, chars = characters) {
+    return {
+      base,
+      name,
+      chars,
+      value: ''
+    };
   }
-  var hex = '';
-  q = num;
-  if (q != 0) {
-    while (q != 0) {
-      hex = characters.charAt(q % 16) + hex;
-      q = Math.floor(q / 16);
+
+  var bases = [
+    mkBase(2, 'Binary'),
+    mkBase(8, 'Octal'),
+    mkBase(16, 'Hexadecimal'),
+    mkBase(36, 'Hexatrigesimal'),
+    mkBase(62, 'Duosexagesimal'),
+    mkBase(26, 'Encryption', encr),
+    mkBase(26, 'Hexavigesimal', letters),
+    mkBase(64, 'Base 64', base64)
+  ];
+
+  function calc(base) {
+    var nbr = num;
+    if (!nbr) base.value = base.chars.charAt(0);
+    while (nbr) {
+      base.value += base.chars.charAt(nbr % base.base);
+      nbr = Math.floor(nbr / base.base);
     }
-  } else {
-    hex = characters.charAt(0);
   }
-  var oct = '';
-  q = num;
-  if (q != 0) {
-    while (q != 0) {
-      oct = characters.charAt(q % 8) + oct;
-      q = Math.floor(q / 8);
-    }
-  } else {
-    oct = characters.charAt(0);
+
+  var t = '*header*:\t\t*current*\n';
+  t += 'Length:\t\t*length*\n\n';
+  t += 'Quick Conversion Equivalents:\n';
+  t += 'Decimal:\t\t' + num + '\n';
+
+  for (base of bases.values()) {
+    calc(base);
+    t += base.name + ':\t\t' + base.value + '\n';
   }
-  var upp = '';
-  q = num;
-  if (q != 0) {
-    while (q != 0) {
-      upp = characters.charAt(q % 36) + upp;
-      q = Math.floor(q / 36);
-    }
-  } else {
-    upp = characters.charAt(0);
-  }
-  var low = '';
-  q = num;
-  if (q != 0) {
-    while (q != 0) {
-      low = characters.charAt(q % 62) + low;
-      q = Math.floor(q / 62);
-    }
-  } else {
-    low = characters.charAt(0);
-  }
-  var enc = '';
-  q = num;
-  if (q != 0) {
-    while (q != 0) {
-      enc = encr.charAt(q % 26) + enc;
-      q = Math.floor(q / 26);
-    }
-  } else {
-    enc = encr.charAt(0);
-  }
-  var b64 = '';
-  q = num;
-  if (q != 0) {
-    while (q != 0) {
-      b64 = base64.charAt(q % 64) + b64;
-      q = Math.floor(q / 64);
-    }
-  } else {
-    b64 = base64.charAt(0);
-  }
-  var lett = '';
-  q = num;
-  if (q != 0) {
-    while (q != 0) {
-      lett = lettters.charAt(q % 26) + lett;
-      q = Math.floor(q / 26);
-    }
-  } else {
-    lett = letters.charAt(0);
-  }
-  var t = '';
-  t = t + '*header*:\t\t*current*\n';
-  t = t + 'Length:\t\t*length*\n\n';
-  t = t + 'Quick Conversion Equivalents:\n';
-  t = t + 'Decimal:\t\t' + num + '\n';
-  t = t + 'Binary:\t\t' + bin + '\n';
-  t = t + 'Hexadecimal:\t' + hex + '\n';
-  t = t + 'Base 64:\t\t' + b64 + '\n';
-  t = t + 'Octal:\t\t' + oct + '\n';
-  t = t + 'Hexatrigesimal:\t' + upp + '\n';
-  t = t + 'Duosexagesimal:\t' + low + '\n';
-  t = t + 'Encryption:\t' + enc + '\n';
-  t = t + 'Hexavigesimal:\t' + lett + '\n';
   return t;
 }
 
