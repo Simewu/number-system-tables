@@ -84,6 +84,12 @@ function reset() {
   calculate();
 }
 
+function sanitize(string) {
+  var elt = document.createElement('span');
+  elt.appendChild(document.createTextNode(string));
+  return elt.textContent;
+}
+
 function calculate() {
   initGlobalVars();
   var binLength = Math.floor(
@@ -102,8 +108,7 @@ function calculate() {
   var rand3 = 1 + Math.floor(Math.random() * 50) / 50;
   var t = '';
   var q = 0;
-  t = t + '<table>';
-  t = t + '<tr>';
+  t += '<table><tr>';
   for (var j = base1; j <= base2; j++) {
     if (j != 0) {
       var title =
@@ -112,30 +117,11 @@ function calculate() {
         title += ' or "0 to ' + j + '"';
       }
       title += '\n\nThis Number System Contains:\n';
-      var s = chars.substr(0, j + 1);
-      for (var k = 0; k < s.length; k++) {
-        var l = s.charAt(k);
-        switch (l) {
-          case '<':
-            l = '&lt;';
-            break;
-          case '>':
-            l = '&gt;';
-            break;
-          case '"':
-            l = '&quot';
-            break;
-          case "'":
-            l = '&#39;';
-            break;
-        }
-        if ((k !== 0) & (k != s.length - 1)) title += ', ';
-        if (k == s.length - 1) title += ' and ';
-        title += l;
-      }
-      title += '.';
-      t =
-        t +
+      title +=
+        sanitize(chars.substr(0, j + 1))
+          .split('')
+          .join(', ') + '.';
+      t +=
         "<td style='background-color:#C0C0C0;' title='" +
         title +
         "'>";
@@ -543,30 +529,11 @@ function convert() {
       title += ' or "0 to ' + binIndex + '"';
     }
     title += '\n\nThis Number System Contains:\n';
-    var s = chars.substr(0, binIndex + 1);
-    for (var k = 0; k < s.length; k++) {
-      var l = s.charAt(k);
-      switch (l) {
-        case '<':
-          l = '&lt;';
-          break;
-        case '>':
-          l = '&gt;';
-          break;
-        case '"':
-          l = '&quot';
-          break;
-        case "'":
-          l = '&#39;';
-          break;
-      }
-      if ((k !== 0) & (k != s.length - 1)) title += ', ';
-      if (k == s.length - 1) title += ' and ';
-      title += l;
-    }
-    title += '.';
-    t =
-      t +
+    title +=
+      sanitize(chars.substr(0, binIndex + 1))
+        .split('')
+        .join(', ') + '.';
+    t +=
       "<td style='background-color:#C0C0C0;' title='" +
       title +
       "'>";
