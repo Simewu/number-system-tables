@@ -33,10 +33,7 @@ document.body.addEventListener('mouseup', function() {
 
 document.body.addEventListener('mouseup', function() {
   encryptGrid();
-  if (
-    (backupUndo != '') &
-    (backupUndo != undos[undos.length - 1])
-  ) {
+  if (backupUndo != '' && backupUndo != undos[undos.length - 1]) {
     redos = [];
     undos.push(backupUndo);
     document.getElementById('undoButton').disabled = false;
@@ -113,7 +110,7 @@ function calculate() {
     if (j != 0) {
       var title =
         '"' + chars.charAt('0') + ' to ' + chars.charAt(j) + '"';
-      if ((j != chars.charAt(j)) | (chars.charAt('0') != '0')) {
+      if (j != chars.charAt(j) || chars.charAt('0') != '0') {
         title += ' or "0 to ' + j + '"';
       }
       title += '\n\nThis Number System Contains:\n';
@@ -137,140 +134,130 @@ function calculate() {
             j +
             ')';
         }
-        if ((j == 1) & (chars.indexOf('01') == 0)) {
+        if (j == 1 && chars.indexOf('01') == 0) {
           t = t + '<br><b>Binary</b><br>';
           Binary = 1;
-        } else if ((j == 2) & (chars.indexOf('012') == 0)) {
+        } else if (j == 2 && chars.indexOf('012') == 0) {
           t = t + '<br><b>Ternary<br>';
-        } else if ((j == 3) & (chars.indexOf('0123') == 0)) {
+        } else if (j == 3 && chars.indexOf('0123') == 0) {
           t = t + '<br><b>Quaternary<br>';
-        } else if ((j == 4) & (chars.indexOf('01234') == 0)) {
+        } else if (j == 4 && chars.indexOf('01234') == 0) {
           t = t + '<br><b>Quinary<br>';
-        } else if ((j == 5) & (chars.indexOf('012345') == 0)) {
+        } else if (j == 5 && chars.indexOf('012345') == 0) {
           t = t + '<br><b>Senary<br>';
-        } else if ((j == 6) & (chars.indexOf('0123456') == 0)) {
+        } else if (j == 6 && chars.indexOf('0123456') == 0) {
           t = t + '<br><b>Septenary<br>';
-        } else if ((j == 7) & (chars.indexOf('01234567') == 0)) {
+        } else if (j == 7 && chars.indexOf('01234567') == 0) {
           t = t + '<br><b>Octal<br>';
-        } else if ((j == 8) & (chars.indexOf('012345678') == 0)) {
+        } else if (j == 8 && chars.indexOf('012345678') == 0) {
           t = t + '<br><b>Nonary<br>';
-        } else if (
-          (j == 9) &
-          (chars.indexOf('0123456789') == 0)
-        ) {
+        } else if (j == 9 && chars.indexOf('0123456789') == 0) {
           t = t + '<br><b>Decimal</b><br>';
           Decimal = 9;
-        } else if (
-          (j == 10) &
-          (chars.indexOf('0123456789A') == 0)
-        ) {
+        } else if (j == 10 && chars.indexOf('0123456789A') == 0) {
           t = t + '<br><b>Undecimal<br>';
         } else if (
-          (j == 11) &
-          (chars.indexOf('0123456789AB') == 0)
+          j == 11 &&
+          chars.indexOf('0123456789AB') == 0
         ) {
           t = t + '<br><b>Duodecimal<br>';
         } else if (
-          (j == 12) &
-          (chars.indexOf('0123456789ABC') == 0)
+          j == 12 &&
+          chars.indexOf('0123456789ABC') == 0
         ) {
           t = t + '<br><b>Tridecimal<br>';
         } else if (
-          (j == 13) &
-          (chars.indexOf('0123456789ABCD') == 0)
+          j == 13 &&
+          chars.indexOf('0123456789ABCD') == 0
         ) {
           t = t + '<br><b>Tetradecimal<br>';
         } else if (
-          (j == 14) &
-          (chars.indexOf('0123456789ABCDE') == 0)
+          j == 14 &&
+          chars.indexOf('0123456789ABCDE') == 0
         ) {
           t = t + '<br><b>Pentadecimal<br>';
         } else if (
-          (j == 15) &
-          (chars.indexOf('0123456789ABCDEF') == 0)
+          j == 15 &&
+          chars.indexOf('0123456789ABCDEF') == 0
         ) {
           t = t + '<br><b>Hexadecimal</b><br>';
           Hexadecimal = 15;
         } else if (
-          (j == 17) &
-          (chars.indexOf('0123456789ABCDEFGH') == 0)
+          j == 17 &&
+          chars.indexOf('0123456789ABCDEFGH') == 0
         ) {
           t = t + '<br><b>Octodecimal<br>';
         } else if (
-          (j == 19) &
-          (chars.indexOf('0123456789ABCDEFGHIJ') == 0)
+          j == 19 &&
+          chars.indexOf('0123456789ABCDEFGHIJ') == 0
         ) {
           t = t + '<br><b>Vigesimal<br>';
         } else if (
-          (j == 23) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMN') == 0)
+          j == 23 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMN') == 0
         ) {
           t = t + '<br><b>Tetravigesimal<br>';
         } else if (
-          (j == 24) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNO') == 0)
+          j == 24 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNO') == 0
         ) {
           t = t + '<br><b>Pentavigesimal<br>';
         } else if (
-          (j == 25) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOP') == 0)
+          j == 25 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOP') == 0
         ) {
           t = t + '<br><b>Hexavigesimal<br>';
         } else if (
-          (j == 26) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQ') == 0)
+          j == 26 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQ') == 0
         ) {
           t = t + '<br><b>Septemvigesimal<br>';
         } else if (
-          (j == 27) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQR') == 0)
+          j == 27 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQR') == 0
         ) {
           t = t + '<br><b>Octovigesimal<br>';
         } else if (
-          (j == 29) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRST') == 0)
+          j == 29 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRST') == 0
         ) {
           t = t + '<br><b>Trigesimal<br>';
         } else if (
-          (j == 31) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUV') == 0)
+          j == 31 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUV') == 0
         ) {
           t = t + '<br><b>Duotrigesimal<br>';
         } else if (
-          (j == 35) &
-          (chars.indexOf(
-            '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-          ) ==
-            0)
+          j == 35 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') ==
+            0
         ) {
           t = t + '<br><b>Hexatrigesimal</b><br>';
           Uppercase = 35;
         } else if (
-          (j == 59) &
-          (chars.indexOf(
+          j == 59 &&
+          chars.indexOf(
             '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx'
-          ) ==
-            0)
+          ) == 0
         ) {
           t = t + '<br><b>Sexagesimal<br>';
         } else if (
-          (j == 61) &
-          (chars.indexOf(
+          j == 61 &&
+          chars.indexOf(
             '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-          ) ==
-            0)
+          ) == 0
         ) {
           t = t + '<br><b>Duosexagesimal</b><br>';
           Lowercase = 61;
         } else if (
-          (j == 25) &
-          (chars.indexOf('ABCDEFGHIJKLMNOPQRSTUVWXYZ') == 0)
+          j == 25 &&
+          chars.indexOf('ABCDEFGHIJKLMNOPQRSTUVWXYZ') == 0
         ) {
           t = t + '<br><b>Hexavigesimal</b><br>';
           UppercaseLetters = 25;
         } else if (
-          (j == 25) &
-          (chars.indexOf('abcdefghijklmnopqrstuvwxyz') == 0)
+          j == 25 &&
+          chars.indexOf('abcdefghijklmnopqrstuvwxyz') == 0
         ) {
           t = t + '<br><b>Hexavigesimal</b><br>';
           UppercaseLetters = 25;
@@ -356,13 +343,13 @@ function calculate() {
               '</td>';
           } else {
             if (
-              (j == Binary) |
-              (j == Decimal) |
-              (j == Hexadecimal) |
-              (j == Uppercase) |
-              (j == Lowercase) |
-              (j == UppercaseLetters) |
-              (j == LowercaseLetters)
+              j == Binary ||
+              j == Decimal ||
+              j == Hexadecimal ||
+              j == Uppercase ||
+              j == Lowercase ||
+              j == UppercaseLetters ||
+              j == LowercaseLetters
             ) {
               t =
                 t +
@@ -476,17 +463,16 @@ function convert() {
   }
   val = fixedVal;
   document.getElementById('valueToConvert').value = val;
-  if ((val.charAt(0) == chars.charAt(0)) & (val.length > 1)) {
+  if (val.charAt(0) == chars.charAt(0) && val.length > 1) {
     document.getElementById('output2').innerHTML = '';
     alert('There are no results for your search');
     return;
   }
   if (
-    (document.getElementById('columnToSearch').value == '') |
-    (chars.indexOf(
+    document.getElementById('columnToSearch').value == '' ||
+    chars.indexOf(
       document.getElementById('columnToSearch').value
-    ) ==
-      -1)
+    ) == -1
   ) {
     //if column specification is blank
     for (var b = 0; b < val.length; b++) {
@@ -514,7 +500,7 @@ function convert() {
   }
   var t = '<table>';
   t = t + '<tr>';
-  if ((binIndex < base1) | (binIndex > base2)) {
+  if (binIndex < base1 || binIndex > base2) {
     //if binary index is not inside dimensions
     var title =
       '"' +
@@ -523,8 +509,8 @@ function convert() {
       chars.charAt(binIndex) +
       '"';
     if (
-      (binIndex != chars.charAt(binIndex)) |
-      (chars.charAt('0') != '0')
+      binIndex != chars.charAt(binIndex) ||
+      chars.charAt('0') != '0'
     ) {
       title += ' or "0 to ' + binIndex + '"';
     }
@@ -549,147 +535,135 @@ function convert() {
           binIndex +
           ')';
       }
-      if ((binIndex == 1) & (chars.indexOf('01') == 0)) {
+      if (binIndex == 1 && chars.indexOf('01') == 0) {
         t = t + '<br><b>Binary</b>';
-      } else if ((binIndex == 2) & (chars.indexOf('012') == 0)) {
+      } else if (binIndex == 2 && chars.indexOf('012') == 0) {
         t = t + '<br><b>Ternary';
-      } else if ((binIndex == 3) & (chars.indexOf('0123') == 0)) {
+      } else if (binIndex == 3 && chars.indexOf('0123') == 0) {
         t = t + '<br><b>Quaternary';
-      } else if (
-        (binIndex == 4) &
-        (chars.indexOf('01234') == 0)
-      ) {
+      } else if (binIndex == 4 && chars.indexOf('01234') == 0) {
         t = t + '<br><b>Quinary';
-      } else if (
-        (binIndex == 5) &
-        (chars.indexOf('012345') == 0)
-      ) {
+      } else if (binIndex == 5 && chars.indexOf('012345') == 0) {
         t = t + '<br><b>Senary';
-      } else if (
-        (binIndex == 6) &
-        (chars.indexOf('0123456') == 0)
-      ) {
+      } else if (binIndex == 6 && chars.indexOf('0123456') == 0) {
         t = t + '<br><b>Septenary';
       } else if (
-        (binIndex == 7) &
-        (chars.indexOf('01234567') == 0)
+        binIndex == 7 &&
+        chars.indexOf('01234567') == 0
       ) {
         t = t + '<br><b>Octal';
       } else if (
-        (binIndex == 8) &
-        (chars.indexOf('012345678') == 0)
+        binIndex == 8 &&
+        chars.indexOf('012345678') == 0
       ) {
         t = t + '<br><b>Nonary';
       } else if (
-        (binIndex == 9) &
-        (chars.indexOf('0123456789') == 0)
+        binIndex == 9 &&
+        chars.indexOf('0123456789') == 0
       ) {
         t = t + '<br><b>Decimal</b>';
       } else if (
-        (binIndex == 10) &
-        (chars.indexOf('0123456789A') == 0)
+        binIndex == 10 &&
+        chars.indexOf('0123456789A') == 0
       ) {
         t = t + '<br><b>Undecimal';
       } else if (
-        (binIndex == 11) &
-        (chars.indexOf('0123456789AB') == 0)
+        binIndex == 11 &&
+        chars.indexOf('0123456789AB') == 0
       ) {
         t = t + '<br><b>Duodecimal<br>';
       } else if (
-        (binIndex == 12) &
-        (chars.indexOf('0123456789ABC') == 0)
+        binIndex == 12 &&
+        chars.indexOf('0123456789ABC') == 0
       ) {
         t = t + '<br><b>Tridecimal';
       } else if (
-        (binIndex == 13) &
-        (chars.indexOf('0123456789ABCD') == 0)
+        binIndex == 13 &&
+        chars.indexOf('0123456789ABCD') == 0
       ) {
         t = t + '<br><b>Tetradecimal';
       } else if (
-        (binIndex == 14) &
-        (chars.indexOf('0123456789ABCDE') == 0)
+        binIndex == 14 &&
+        chars.indexOf('0123456789ABCDE') == 0
       ) {
         t = t + '<br><b>Pentadecimal';
       } else if (
-        (binIndex == 15) &
-        (chars.indexOf('0123456789ABCDEF') == 0)
+        binIndex == 15 &&
+        chars.indexOf('0123456789ABCDEF') == 0
       ) {
         t = t + '<br><b>Hexadecimal</b>';
       } else if (
-        (binIndex == 17) &
-        (chars.indexOf('0123456789ABCDEFGH') == 0)
+        binIndex == 17 &&
+        chars.indexOf('0123456789ABCDEFGH') == 0
       ) {
         t = t + '<br><b>Octodecimal';
       } else if (
-        (binIndex == 19) &
-        (chars.indexOf('0123456789ABCDEFGHIJ') == 0)
+        binIndex == 19 &&
+        chars.indexOf('0123456789ABCDEFGHIJ') == 0
       ) {
         t = t + '<br><b>Vigesimal';
       } else if (
-        (binIndex == 23) &
-        (chars.indexOf('0123456789ABCDEFGHIJKLMN') == 0)
+        binIndex == 23 &&
+        chars.indexOf('0123456789ABCDEFGHIJKLMN') == 0
       ) {
         t = t + '<br><b>Tetravigesimal';
       } else if (
-        (binIndex == 24) &
-        (chars.indexOf('0123456789ABCDEFGHIJKLMNO') == 0)
+        binIndex == 24 &&
+        chars.indexOf('0123456789ABCDEFGHIJKLMNO') == 0
       ) {
         t = t + '<br><b>Pentavigesimal';
       } else if (
-        (binIndex == 25) &
-        (chars.indexOf('0123456789ABCDEFGHIJKLMNOP') == 0)
+        binIndex == 25 &&
+        chars.indexOf('0123456789ABCDEFGHIJKLMNOP') == 0
       ) {
         t = t + '<br><b>Hexavigesimal';
       } else if (
-        (binIndex == 26) &
-        (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQ') == 0)
+        binIndex == 26 &&
+        chars.indexOf('0123456789ABCDEFGHIJKLMNOPQ') == 0
       ) {
         t = t + '<br><b>Septemvigesimal';
       } else if (
-        (binIndex == 27) &
-        (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQR') == 0)
+        binIndex == 27 &&
+        chars.indexOf('0123456789ABCDEFGHIJKLMNOPQR') == 0
       ) {
         t = t + '<br><b>Octovigesimal';
       } else if (
-        (binIndex == 29) &
-        (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRST') == 0)
+        binIndex == 29 &&
+        chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRST') == 0
       ) {
         t = t + '<br><b>Trigesimal';
       } else if (
-        (binIndex == 31) &
-        (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUV') == 0)
+        binIndex == 31 &&
+        chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUV') == 0
       ) {
         t = t + '<br><b>Duotrigesimal';
       } else if (
-        (binIndex == 35) &
-        (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') ==
-          0)
+        binIndex == 35 &&
+        chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') == 0
       ) {
         t = t + '<br><b>Hexatrigesimal</b>';
       } else if (
-        (binIndex == 59) &
-        (chars.indexOf(
+        binIndex == 59 &&
+        chars.indexOf(
           '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx'
-        ) ==
-          0)
+        ) == 0
       ) {
         t = t + '<br><b>Sexagesimal';
       } else if (
-        (binIndex == 61) &
-        (chars.indexOf(
+        binIndex == 61 &&
+        chars.indexOf(
           '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-        ) ==
-          0)
+        ) == 0
       ) {
         t = t + '<br><b>Duosexagesimal</b>';
       } else if (
-        (binIndex == 25) &
-        (chars.indexOf('ABCDEFGHIJKLMNOPQRSTUVWXYZ') == 0)
+        binIndex == 25 &&
+        chars.indexOf('ABCDEFGHIJKLMNOPQRSTUVWXYZ') == 0
       ) {
         t = t + '<br><b>Hexavigesimal</b>';
       } else if (
-        (binIndex == 25) &
-        (chars.indexOf('abcdefghijklmnopqrstuvwxyz') == 0)
+        binIndex == 25 &&
+        chars.indexOf('abcdefghijklmnopqrstuvwxyz') == 0
       ) {
         t = t + '<br><b>Hexavigesimal</b>';
       }
@@ -709,7 +683,7 @@ function convert() {
     if (j != 0) {
       var title =
         '"' + chars.charAt('0') + ' to ' + chars.charAt(j) + '"';
-      if ((j != chars.charAt(j)) | (chars.charAt('0') != '0')) {
+      if (j != chars.charAt(j) || chars.charAt('0') != '0') {
         title += ' or "0 to ' + j + '"';
       }
       t =
@@ -729,140 +703,130 @@ function convert() {
             j +
             ')';
         }
-        if ((j == 1) & (chars.indexOf('01') == 0)) {
+        if (j == 1 && chars.indexOf('01') == 0) {
           t = t + '<br><b>Binary</b>';
           Binary = 1;
-        } else if ((j == 2) & (chars.indexOf('012') == 0)) {
+        } else if (j == 2 && chars.indexOf('012') == 0) {
           t = t + '<br><b>Ternary';
-        } else if ((j == 3) & (chars.indexOf('0123') == 0)) {
+        } else if (j == 3 && chars.indexOf('0123') == 0) {
           t = t + '<br><b>Quaternary';
-        } else if ((j == 4) & (chars.indexOf('01234') == 0)) {
+        } else if (j == 4 && chars.indexOf('01234') == 0) {
           t = t + '<br><b>Quinary';
-        } else if ((j == 5) & (chars.indexOf('012345') == 0)) {
+        } else if (j == 5 && chars.indexOf('012345') == 0) {
           t = t + '<br><b>Senary';
-        } else if ((j == 6) & (chars.indexOf('0123456') == 0)) {
+        } else if (j == 6 && chars.indexOf('0123456') == 0) {
           t = t + '<br><b>Septenary';
-        } else if ((j == 7) & (chars.indexOf('01234567') == 0)) {
+        } else if (j == 7 && chars.indexOf('01234567') == 0) {
           t = t + '<br><b>Octal';
-        } else if ((j == 8) & (chars.indexOf('012345678') == 0)) {
+        } else if (j == 8 && chars.indexOf('012345678') == 0) {
           t = t + '<br><b>Nonary';
-        } else if (
-          (j == 9) &
-          (chars.indexOf('0123456789') == 0)
-        ) {
+        } else if (j == 9 && chars.indexOf('0123456789') == 0) {
           t = t + '<br><b>Decimal</b>';
           Decimal = 9;
-        } else if (
-          (j == 10) &
-          (chars.indexOf('0123456789A') == 0)
-        ) {
+        } else if (j == 10 && chars.indexOf('0123456789A') == 0) {
           t = t + '<br><b>Undecimal';
         } else if (
-          (j == 11) &
-          (chars.indexOf('0123456789AB') == 0)
+          j == 11 &&
+          chars.indexOf('0123456789AB') == 0
         ) {
           t = t + '<br><b>Duodecimal';
         } else if (
-          (j == 12) &
-          (chars.indexOf('0123456789ABC') == 0)
+          j == 12 &&
+          chars.indexOf('0123456789ABC') == 0
         ) {
           t = t + '<br><b>Tridecimal';
         } else if (
-          (j == 13) &
-          (chars.indexOf('0123456789ABCD') == 0)
+          j == 13 &&
+          chars.indexOf('0123456789ABCD') == 0
         ) {
           t = t + '<br><b>Tetradecimal';
         } else if (
-          (j == 14) &
-          (chars.indexOf('0123456789ABCDE') == 0)
+          j == 14 &&
+          chars.indexOf('0123456789ABCDE') == 0
         ) {
           t = t + '<br><b>Pentadecimal';
         } else if (
-          (j == 15) &
-          (chars.indexOf('0123456789ABCDEF') == 0)
+          j == 15 &&
+          chars.indexOf('0123456789ABCDEF') == 0
         ) {
           t = t + '<br><b>Hexadecimal</b>';
           Hexadecimal = 15;
         } else if (
-          (j == 17) &
-          (chars.indexOf('0123456789ABCDEFGH') == 0)
+          j == 17 &&
+          chars.indexOf('0123456789ABCDEFGH') == 0
         ) {
           t = t + '<br><b>Octodecimal';
         } else if (
-          (j == 19) &
-          (chars.indexOf('0123456789ABCDEFGHIJ') == 0)
+          j == 19 &&
+          chars.indexOf('0123456789ABCDEFGHIJ') == 0
         ) {
           t = t + '<br><b>Vigesimal';
         } else if (
-          (j == 23) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMN') == 0)
+          j == 23 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMN') == 0
         ) {
           t = t + '<br><b>Tetravigesimal';
         } else if (
-          (j == 24) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNO') == 0)
+          j == 24 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNO') == 0
         ) {
           t = t + '<br><b>Pentavigesimal';
         } else if (
-          (j == 25) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOP') == 0)
+          j == 25 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOP') == 0
         ) {
           t = t + '<br><b>Hexavigesimal';
         } else if (
-          (j == 26) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQ') == 0)
+          j == 26 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQ') == 0
         ) {
           t = t + '<br><b>Septemvigesimal';
         } else if (
-          (j == 27) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQR') == 0)
+          j == 27 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQR') == 0
         ) {
           t = t + '<br><b>Octovigesimal';
         } else if (
-          (j == 29) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRST') == 0)
+          j == 29 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRST') == 0
         ) {
           t = t + '<br><b>Trigesimal';
         } else if (
-          (j == 31) &
-          (chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUV') == 0)
+          j == 31 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUV') == 0
         ) {
           t = t + '<br><b>Duotrigesimal';
         } else if (
-          (j == 35) &
-          (chars.indexOf(
-            '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-          ) ==
-            0)
+          j == 35 &&
+          chars.indexOf('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') ==
+            0
         ) {
           t = t + '<br><b>Hexatrigesimal</b>';
           Uppercase = 35;
         } else if (
-          (j == 59) &
-          (chars.indexOf(
+          j == 59 &&
+          chars.indexOf(
             '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx'
-          ) ==
-            0)
+          ) == 0
         ) {
           t = t + '<br><b>Sexagesimal';
         } else if (
-          (j == 61) &
-          (chars.indexOf(
+          j == 61 &&
+          chars.indexOf(
             '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-          ) ==
-            0)
+          ) == 0
         ) {
           t = t + '<br><b>Duosexagesimal</b>';
           Lowercase = 61;
         } else if (
-          (j == 25) &
-          (chars.indexOf('ABCDEFGHIJKLMNOPQRSTUVWXYZ') == 0)
+          j == 25 &&
+          chars.indexOf('ABCDEFGHIJKLMNOPQRSTUVWXYZ') == 0
         ) {
           t = t + '<br><b>Hexavigesimal</b>';
           UppercaseLetters = 25;
         } else if (
-          (j == 25) &
-          (chars.indexOf('abcdefghijklmnopqrstuvwxyz') == 0)
+          j == 25 &&
+          chars.indexOf('abcdefghijklmnopqrstuvwxyz') == 0
         ) {
           t = t + '<br><b>Hexavigesimal</b>';
           LowercaseLetters = 25;
@@ -877,7 +841,7 @@ function convert() {
   //headers done, now for the data...
   t = t + '<tr>';
   var tooltip = getTooltip(num);
-  if ((binIndex < base1) | (binIndex > base2)) {
+  if (binIndex < base1 || binIndex > base2) {
     //if binary index is not in dimensions
     var q = num;
     var bin = '';
@@ -941,13 +905,13 @@ function convert() {
           '</td>';
       } else {
         if (
-          (j == Binary) |
-          (j == Decimal) |
-          (j == Hexadecimal) |
-          (j == Uppercase) |
-          (j == Lowercase) |
-          (j == UppercaseLetters) |
-          (j == LowercaseLetters)
+          j == Binary ||
+          j == Decimal ||
+          j == Hexadecimal ||
+          j == Uppercase ||
+          j == Lowercase ||
+          j == UppercaseLetters ||
+          j == LowercaseLetters
         ) {
           t =
             t +
@@ -977,7 +941,7 @@ function convert() {
 function setToWindowLocation(bits, count) {
   convert();
   window.scrollTo(0, 0);
-  if ((bits < base1) | (bits > base2)) {
+  if (bits < base1 || bits > base2) {
     if (bits != 0) {
       document.getElementById('base1').value = chars.charAt(
         bits - 7
@@ -987,7 +951,7 @@ function setToWindowLocation(bits, count) {
       );
     }
   }
-  if ((count < count1) | (count > count2)) {
+  if (count < count1 || count > count2) {
     document.getElementById('count1').value = count + 80;
     document.getElementById('count2').value = count - 20;
   }
@@ -1004,14 +968,14 @@ function initGlobalVars() {
     document.getElementById('order').value = chars;
   }
   if (
-    (document.getElementById('base1').value == '') |
-    (chars.indexOf(document.getElementById('base1').value) == -1)
+    document.getElementById('base1').value == '' ||
+    chars.indexOf(document.getElementById('base1').value) == -1
   ) {
     document.getElementById('base1').value = chars.charAt(0);
   }
   if (
-    (document.getElementById('base2').value == '') |
-    (chars.indexOf(document.getElementById('base2').value) == -1)
+    document.getElementById('base2').value == '' ||
+    chars.indexOf(document.getElementById('base2').value) == -1
   ) {
     document.getElementById('base2').value = chars.charAt(
       chars.length - 1
@@ -1183,7 +1147,7 @@ function randomizeEncryptionGrid() {
           if (verticalMirror) {
             drawPoint(nboxes - x + 1, y, false);
           }
-          if (horizontalMirror & verticalMirror) {
+          if (horizontalMirror && verticalMirror) {
             drawPoint(nboxes - x + 1, nboxes - y + 1, false);
           }
           if (diagonalMirror) {
@@ -1192,7 +1156,7 @@ function randomizeEncryptionGrid() {
           if (diagonalMirror2) {
             drawPoint(y, x, false);
           }
-          if (diagonalMirror & diagonalMirror2) {
+          if (diagonalMirror && diagonalMirror2) {
             drawPoint(nboxes - x + 1, nboxes - y + 1, false);
           }
           if (circularMirror) {
@@ -1358,7 +1322,7 @@ function buttonClicked(clicked, x, y) {
     .checked;
   if (brushsize > nboxes) brushsize = nboxes;
   if (brushsize < 1) brushsize = 1;
-  if (mouseDown | clicked) {
+  if (mouseDown || clicked) {
     if (clicked) {
       startColor = document.getElementById(x + ',' + y).style
         .backgroundColor;
@@ -1382,7 +1346,7 @@ function buttonClicked(clicked, x, y) {
     if (verticalMirror) {
       drawPoint(nboxes - x + 1, y, true);
     }
-    if (horizontalMirror & verticalMirror) {
+    if (horizontalMirror && verticalMirror) {
       drawPoint(nboxes - x + 1, nboxes - y + 1, true);
     }
     if (diagonalMirror) {
@@ -1391,7 +1355,7 @@ function buttonClicked(clicked, x, y) {
     if (diagonalMirror2) {
       drawPoint(y, x, true);
     }
-    if (diagonalMirror & diagonalMirror2) {
+    if (diagonalMirror && diagonalMirror2) {
       drawPoint(nboxes - x + 1, nboxes - y + 1, true);
     }
     if (circularMirror) {
@@ -1403,7 +1367,7 @@ function buttonClicked(clicked, x, y) {
 }
 
 function drawPoint(x, y, useDefault) {
-  if (useDefault & (drawType != 4)) {
+  if (useDefault && drawType != 4) {
     startOffset = Math.floor((brushsize + 1) / 2) - 1;
     stopOffset = Math.ceil((brushsize + 1) / 2) - 1;
   } else {
@@ -1414,21 +1378,21 @@ function drawPoint(x, y, useDefault) {
     for (xi = x - startOffset; xi <= x + stopOffset; xi++) {
       if (document.getElementById(xi + ',' + yi)) {
         var btn = document.getElementById(xi + ',' + yi);
-        if ((drawType == 1) & useDefault) {
+        if (drawType == 1 && useDefault) {
           if (startColor == 'rgb(255, 255, 255)') {
             btn.style.backgroundColor = '#FFFFFF';
           } else {
             btn.style.backgroundColor = '#000000';
           }
         }
-        if ((drawType == 2) & useDefault) {
+        if (drawType == 2 && useDefault) {
           if (startColor == 'rgb(255, 255, 255)') {
             btn.style.backgroundColor = '#000000';
           } else {
             btn.style.backgroundColor = '#FFFFFF';
           }
         }
-        if ((drawType == 3) | (useDefault == false)) {
+        if (drawType == 3 || useDefault == false) {
           if (btn.style.backgroundColor == 'rgb(255, 255, 255)') {
             btn.style.backgroundColor = '#000000';
           } else {
@@ -1558,14 +1522,14 @@ function brushSize(increment) {
 function mirrorSelected(selection) {
   if (selection == 5) {
     if (
-      document.getElementById('horizontalMirror').checked &
+      document.getElementById('horizontalMirror').checked &&
       document.getElementById('verticalMirror').checked
     ) {
       document.getElementById('horizontalMirror').checked = false;
       document.getElementById('verticalMirror').checked = false;
     }
     if (
-      document.getElementById('diagonalMirror').checked &
+      document.getElementById('diagonalMirror').checked &&
       document.getElementById('diagonalMirror2').checked
     ) {
       document.getElementById('diagonalMirror').checked = false;
@@ -1573,13 +1537,13 @@ function mirrorSelected(selection) {
     }
   }
   if (
-    (selection == 1) |
-    (selection == 2) |
-    (selection == 3) |
-    (selection == 4)
+    selection == 1 ||
+    selection == 2 ||
+    selection == 3 ||
+    selection == 4
   ) {
     if (
-      document.getElementById('horizontalMirror').checked &
+      document.getElementById('horizontalMirror').checked &&
       document.getElementById('verticalMirror').checked
     ) {
       if (document.getElementById('circularMirror').checked) {
@@ -1587,7 +1551,7 @@ function mirrorSelected(selection) {
       }
     }
     if (
-      document.getElementById('diagonalMirror').checked &
+      document.getElementById('diagonalMirror').checked &&
       document.getElementById('diagonalMirror2').checked
     ) {
       if (document.getElementById('circularMirror').checked) {
@@ -1606,9 +1570,9 @@ function getGridBinary() {
   bin = '';
   while (l > 0) {
     count++;
-    if ((l == nboxes - 1.5) & (count == 3)) l += 0.5;
-    if ((l == 0.5) & (count == 4) & (nboxes % 2 == 0)) l += 0.5;
-    if ((l == 0.5) & (count == 2) & (nboxes % 2 == 1)) l += 0.5;
+    if (l == nboxes - 1.5 && count == 3) l += 0.5;
+    if (l == 0.5 && count == 4 && nboxes % 2 == 0) l += 0.5;
+    if (l == 0.5 && count == 2 && nboxes % 2 == 1) l += 0.5;
     for (var i = 1; i <= l; i++) {
       btn = document.getElementById(x + ',' + y);
       if (btn) {
@@ -1653,7 +1617,7 @@ function encryptGrid() {
       s = characters.charAt(q % characters.length) + s;
       q = Math.floor(q / characters.length);
     }
-    if ((olds == s) & (count < characters.length - 2)) {
+    if (olds == s && count < characters.length - 2) {
       count++;
     } else {
       var c = characters.charAt(count);
@@ -1694,8 +1658,8 @@ function decrypt(valueToUse) {
   }
   if (e.length <= 1) return;
   if (
-    (valueToUse == '') &
-    (document.getElementById('encryptionCount').innerHTML != '')
+    valueToUse == '' &&
+    document.getElementById('encryptionCount').innerHTML != ''
   )
     return;
   var characters =
@@ -1763,8 +1727,8 @@ function decrypt(valueToUse) {
     encryptionNboxes = num;
   }
   if (
-    (encryptionNboxes >= 100) &
-    (backupEncryptionNboxes != encryptionNboxes)
+    encryptionNboxes >= 100 &&
+    backupEncryptionNboxes != encryptionNboxes
   ) {
     alert(
       'Warning! You are about to create ' +
@@ -1806,10 +1770,10 @@ function decrypt(valueToUse) {
   var b = 0;
   while (l > 0) {
     count++;
-    if ((l == encryptionNboxes - 1.5) & (count == 3)) l += 0.5;
-    if ((l == 0.5) & (count == 4) & (encryptionNboxes % 2 == 0))
+    if (l == encryptionNboxes - 1.5 && count == 3) l += 0.5;
+    if (l == 0.5 && count == 4 && encryptionNboxes % 2 == 0)
       l += 0.5;
-    if ((l == 0.5) & (count == 2) & (encryptionNboxes % 2 == 1))
+    if (l == 0.5 && count == 2 && encryptionNboxes % 2 == 1)
       l += 0.5;
     for (var i = 1; i <= l; i++) {
       if (valueToUse == '') {
@@ -1908,7 +1872,7 @@ function decryptTextareaChange(edited) {
   for (var b = 0; b < v.length; b++) {
     var index = characters.indexOf(v.charAt(b));
     if (index == -1) {
-      if ((v.charAt(b) == ':') & (colons < 2)) {
+      if (v.charAt(b) == ':' && colons < 2) {
         colons++;
       } else {
         notAllowed += '(' + v.charAt(b) + ')';
@@ -2011,7 +1975,7 @@ document.body.addEventListener('keydown', function(e) {
     ? evtobj.charCode
     : evtobj.keyCode;
   if (document.activeElement.id == 'base1') {
-    if ((unicode == 13) | (unicode == 39)) {
+    if (unicode == 13 || unicode == 39) {
       //enter or right
       document.getElementById('base2').focus();
       return false;
@@ -2036,7 +2000,7 @@ document.body.addEventListener('keydown', function(e) {
     }
   }
   if (document.activeElement.id == 'base2') {
-    if ((unicode == 13) | (unicode == 39)) {
+    if (unicode == 13 || unicode == 39) {
       document.getElementById('count1').focus();
       return false;
     }
