@@ -1320,13 +1320,13 @@ function buttonClicked(clicked, x, y) {
   circularMirror = document.getElementById('circularMirror')
     .checked;
   brushsize = Math.max(Math.min(nboxes, brushsize), 1);
-  if (mouseDown || clicked) {
+  if (isMouseDown || clicked) {
     if (clicked) {
       startColor = document.getElementById(x + ',' + y).style
         .backgroundColor;
     }
     if (drawType == 4) {
-      if (!mouseDown) {
+      if (!isMouseDown) {
         backupUndo = document.getElementById('output3').value;
         var btn = document.getElementById(x + ',' + y);
         if (btn.style.backgroundColor == 'rgb(255, 255, 255)') {
