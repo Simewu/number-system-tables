@@ -489,15 +489,15 @@ function getTooltip(num) {
   } else {
     b64 = base64.charAt(0);
   }
-  var let = '';
+  var lett = '';
   q = num;
   if (q != 0) {
     while (q != 0) {
-      let = letters.charAt(q % 26) + let;
+      lett = lettters.charAt(q % 26) + lett;
       q = Math.floor(q / 26);
     }
   } else {
-    let = letters.charAt(0);
+    lett = letters.charAt(0);
   }
   var t = '';
   t = t + '*header*:\t\t*current*\n';
@@ -511,7 +511,7 @@ function getTooltip(num) {
   t = t + 'Hexatrigesimal:\t' + upp + '\n';
   t = t + 'Duosexagesimal:\t' + low + '\n';
   t = t + 'Encryption:\t' + enc + '\n';
-  t = t + 'Hexavigesimal:\t' + let + '\n';
+  t = t + 'Hexavigesimal:\t' + lett + '\n';
   return t;
 }
 
