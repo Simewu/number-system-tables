@@ -33,15 +33,13 @@ document.body.addEventListener('mouseup', function() {
 
 document.body.addEventListener('mouseup', function() {
   encryptGrid();
-  if (backupUndo != '' && backupUndo != undos[undos.length - 1]) {
+  if (backupUndo && backupUndo != undos.slice(-1)) {
     redos = [];
     undos.push(backupUndo);
     document.getElementById('undoButton').disabled = false;
     document.getElementById('redoButton').disabled = true;
     backupUndo = '';
-    if (undos.length > 100) {
-      undos.splice(0, 1);
-    }
+    if (undos.length > 100) undos.shift();
   }
 });
 
@@ -89,9 +87,10 @@ function sanitize(string) {
 
 function calculate() {
   initGlobalVars();
-  var binLength = Math.floor(
-    Math.log(2 * count2 + 1) / Math.log(Math.E) / Math.LN2
-  );
+  // i think this line is not required
+  // var binLength = Math.floor(
+  //   Math.log(2 * count2 + 1) / Math.log(Math.E) / Math.LN2
+  // );
   var output = document.getElementById('output');
   var Binary = -1;
   var Decimal = -1;
@@ -122,7 +121,7 @@ function calculate() {
         "<td style='background-color:#C0C0C0;' title='" +
         title +
         "'>";
-      if (document.getElementById('hideNames').checked == false) {
+      if (!document.getElementById('hideNames').checked) {
         if (j == chars.charAt(j)) {
           t += chars.charAt('0') + ' to ' + chars.charAt(j);
         } else {
@@ -523,7 +522,7 @@ function convert() {
       "<td style='background-color:#C0C0C0;' title='" +
       title +
       "'>";
-    if (document.getElementById('hideNames').checked == false) {
+    if (!document.getElementById('hideNames').checked) {
       if (binIndex == chars.charAt(binIndex)) {
         t += chars.charAt('0') + ' to ' + chars.charAt(binIndex);
       } else {
@@ -691,7 +690,7 @@ function convert() {
         "<td style='background-color:#C0C0C0' title='" +
         title +
         "'>";
-      if (document.getElementById('hideNames').checked == false) {
+      if (!document.getElementById('hideNames').checked) {
         if (j == chars.charAt(j)) {
           t += chars.charAt('0') + ' to ' + chars.charAt(j);
         } else {
@@ -1320,15 +1319,14 @@ function buttonClicked(clicked, x, y) {
     .checked;
   circularMirror = document.getElementById('circularMirror')
     .checked;
-  if (brushsize > nboxes) brushsize = nboxes;
-  if (brushsize < 1) brushsize = 1;
+  brushsize = Math.max(Math.min(nboxes, brushsize), 1);
   if (mouseDown || clicked) {
     if (clicked) {
       startColor = document.getElementById(x + ',' + y).style
         .backgroundColor;
     }
     if (drawType == 4) {
-      if (mouseDown == false) {
+      if (!mouseDown) {
         backupUndo = document.getElementById('output3').value;
         var btn = document.getElementById(x + ',' + y);
         if (btn.style.backgroundColor == 'rgb(255, 255, 255)') {
@@ -1392,7 +1390,7 @@ function drawPoint(x, y, useDefault) {
             btn.style.backgroundColor = '#FFFFFF';
           }
         }
-        if (drawType == 3 || useDefault == false) {
+        if (drawType == 3 || !useDefault) {
           if (btn.style.backgroundColor == 'rgb(255, 255, 255)') {
             btn.style.backgroundColor = '#000000';
           } else {
