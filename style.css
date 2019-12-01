@@ -2,6 +2,7 @@ body {
   font-family: 'Trebuchet MS', Helvetica, sans-serif;
   background-color: #333333;
   cursor: default;
+  padding-top: 40px;
 }
 input,
 textarea {
