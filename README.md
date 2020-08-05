@@ -4,4 +4,9 @@ This tool can be used to explore the different number systems and converting bet
 ![](/screenshot.png)
 
 ___
-This application is hosted at http://simewu.com/number-system-toolkit/.
+This application is hosted at
+https://simewu.github.io/number-system-toolkit
+
+and
+
+http://simewu.com/number-system-toolkit.
